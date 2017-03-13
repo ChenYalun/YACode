@@ -21,3 +21,10 @@ print s.jumpFloor(1)
 print s.jumpFloor(2)
 print s.jumpFloor(5)
 print s.jumpFloor(8)
+
+'''
+本质上还是斐波那契数列的变形
+1 2 3 5 8 13 24 34
+
+
+'''
