@@ -18,7 +18,9 @@ class Solution:
             b = s
             i += 1
         return s
-# 递归也可以
+
+
+# 递归也可以,不建议
 def fib1(n):
     if n == 0:
         return 0
