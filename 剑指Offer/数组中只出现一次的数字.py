@@ -1,4 +1,5 @@
 # -*- coding:utf-8 -*-
+
 class Solution:
     @classmethod
     # 返回一个数字在数组中出现的次数
@@ -16,7 +17,6 @@ class Solution:
                 tempList.append(x)
         return tempList
 
-  
 
 
 s = Solution()
