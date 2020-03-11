@@ -44,36 +44,28 @@ func desc(_ node: ListNode?) {
 }
 
 
-// 快慢指针
 class Solution {
     func deleteDuplicates(_ head: ListNode?) -> ListNode? {
-        var fast = head
-        var head = head
-        // 占位结点
-        var slow: ListNode? = ListNode(0)
-        var slowHasMoved = false
-        slow?.next = fast
-        while fast != nil {
-            if fast?.val == fast?.next?.val {
-                var p = fast?.next?.next
-                while p != nil && p?.val == fast?.val {
-                    p = p?.next
+        // 虚拟头结点
+        let root: ListNode? = ListNode(0)
+        root?.next = head
+        // 原先指针
+        var prev = root
+        // 当前指针
+        var curr = head
+        while curr != nil && curr?.next != nil {
+            if curr?.val == curr?.next?.val {
+                while curr?.next?.val == curr?.val {
+                    curr = curr?.next
                 }
-                if !slowHasMoved { // 没有移动过
-                    slow?.next = p
-                    head = p
-                } else {
-                    slowHasMoved = true
-                    slow?.next = p
-                }
-                fast = slow?.next
+                prev?.next = curr?.next
             } else {
-                fast = fast?.next
-                slow = slow?.next
-                slowHasMoved = true
+                prev?.next = curr
+                prev = prev?.next
             }
+            curr = curr?.next
         }
-        return head
+        return root?.next
     }
 }
 
